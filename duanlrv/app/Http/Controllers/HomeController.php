@@ -35,4 +35,8 @@ class HomeController extends Controller
         $category_khac= DB::table('categories')->where('hidden','1')->where('id_nav','5')->orderby('id','ASC')->get();
         return view('pages.home')->with(compact('category','category_meo','category_ca','category_chim','category_khac'));
     }
+    public function products(){
+        $products= $this->qlsanpham->getAll();
+        return view('site.products',compact('products'));
+    }
 }
